@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemons em eventos</title>
+</head>
+<body>
+    <ul>
+    </ul>
+<script type="text/javascript">
+    if (!!window.EventSource){
+        var evtSource = new EventSource('pokemon/events'); //http://localhost:8080/index.html
+        var evenList = document.querySelector('ul');
+
+        evtSource.onmessage = function (e) {
+            var newElement = document.createElement("li");
+
+            newElement.textContent = "Event: " + e.data;
+            evenList.appendChild(newElement);        
+        }
+    } else{
+        alert("O browser não suporta")
+    }
+</script>
+</body>
+</html>
