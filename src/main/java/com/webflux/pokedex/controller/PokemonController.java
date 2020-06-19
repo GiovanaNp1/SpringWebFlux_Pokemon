@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.reactive.result.view.Rendering;
 
 import com.webflux.pokedex.model.Pokemon;
 import com.webflux.pokedex.model.PokemonEvent;
@@ -78,5 +79,10 @@ public class PokemonController {
 			.map(value ->
 				new PokemonEvent(value, "Pokemonsitosss"));
 	}
+	
+	@GetMapping("/")
+    public Rendering redirect() {
+        return Rendering.redirectTo("index.html").build();
+    }
 	
 }
