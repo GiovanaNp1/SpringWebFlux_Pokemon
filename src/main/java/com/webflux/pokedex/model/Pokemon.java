@@ -12,17 +12,27 @@ public class Pokemon {
 	private String categoria;
 	private String habilidade;
 	private double peso;
+	private String image;
 	
 	public Pokemon() {
 		super();
 	}
 	
-	public Pokemon(String id, String nome, String categoria, String habilidade, double peso) {
+	public Pokemon(String id, String nome, String categoria, String habilidade, double peso,  String image) {
 		this.id = id;
 		this.nome = nome;
 		this.categoria = categoria;
 		this.habilidade = habilidade;
 		this.peso = peso;
+		this.image = image;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public String getId() {
@@ -73,6 +83,7 @@ public class Pokemon {
 		result = prime * result + ((habilidade == null) ? 0 : habilidade.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((image == null) ? 0 : image.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(peso);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -108,6 +119,11 @@ public class Pokemon {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
+		if (image == null) {
+			if (other.image != null)
+				return false;
+		} else if (!habilidade.equals(other.habilidade))
+			return false;
 		if (Double.doubleToLongBits(peso) != Double.doubleToLongBits(other.peso))
 			return false;
 		return true;
@@ -121,7 +137,7 @@ public class Pokemon {
 
 	@Override
 	public String toString() {
-		return "Pokemon [id=" + id + ", nome=" + nome + ", categoria=" + categoria + ", habilidade=" + habilidade
+		return "Pokemon [id=" + id + ", nome=" + nome +  ", image=" + image + ", categoria=" + categoria + ", habilidade=" + habilidade
 				+ ", peso=" + peso + "]";
 	}
 	
