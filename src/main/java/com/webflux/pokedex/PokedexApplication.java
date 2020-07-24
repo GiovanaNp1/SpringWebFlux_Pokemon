@@ -36,10 +36,10 @@ public class PokedexApplication {
 		CommandLineRunner init (ReactiveMongoOperations operations, PokemonRepository repository) {
 			return args -> {
 				Flux<Pokemon> pokemonFlux = Flux.just(
-					new Pokemon(null, "shellder", "water", "shell-armor", 40.5, "https://lh3.googleusercontent.com/proxy/Fit3j1ibRVu4NUvp5CyG2GLHQJgjXXZHvhNCNK5nXgb7x_9v3c9s-N0SMV-YWLO7t29O5HUvOwzu30nQQfaJWBFMh0ok3Dhs"),
+					new Pokemon(null, "shellder", "water", "shell-armor", 40.5, "https://cdn.bulbagarden.net/upload/c/cb/Spr_3f_090.png"),
 					new Pokemon(null, "lickitung", "normal", "special-attack", 65.5, "https://cdn.bulbagarden.net/upload/d/d3/Spr_4h_108.png"),
 					new Pokemon(null, "wartortle", "water", "ice-punch", 225, "https://www.pngkey.com/png/full/154-1541978_wartortle-wartortle-pixel-gif.png"),
-					new Pokemon(null, "bulbasaur", "grass", "grass-pledge", 6.9, "https://lh3.googleusercontent.com/proxy/V6O246fnCYQ_0Gc4DuMzjrLwxwhg0DUU6p5CuygMy8ltJOpTQxEQENcXbjPGXfsHeTsr8M-4Nc92csn-zAFQc152fgeOebc3"))
+					new Pokemon(null, "bulbasaur", "grass", "grass-pledge", 6.9, "http://pixelartmaker.com/art/b685b6640e4ee75.png"))
 					.flatMap(repository::save);
 				
 				pokemonFlux

@@ -14,7 +14,7 @@ A partir do projeto ["Construindo um Pokédex com Spring Webflux"](https://web.d
 - [X] Criação de Metodos GET, POST, PUT & DELETE
 - [X] Listagem no Front-end de todos os pokemons
 - [X] Implementação do CORS na plataforma
-- [ ] Implementação de adicionar novos pokemons
+- [X] Implementação de adicionar novos pokemons
 - [ ] Deleção de pokemons
 - [ ] Update de pokemons
 - [ ] Subir em Ambiente de Nuvem a Pokedex
