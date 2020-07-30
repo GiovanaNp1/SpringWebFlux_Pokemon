@@ -14,34 +14,6 @@
             </div>
             </div>
           </div>
-          <div class="col-6">
-            <h3>Adicionar novo pokemon</h3>
-            <alert :message=message v-if="showMessage"></alert>
-            <br><br>
-            <form class="text-left" @submit="onSubmit">
-            <div class="form-group ">
-              <label for="inputName">Nome</label>
-              <input type="text" v-model="addPokemonForm.nome" class="form-control" id="inputName" aria-describedby="Nome-Pokeon" placeholder="Ex: Pikachu, Chamander">
-            </div>
-            <div class="form-group">
-              <label for="inputCategoria">Categoria</label>
-              <input type="text" v-model="addPokemonForm.categoria" class="form-control" id="inputCategoria" aria-describedby="categoria-pokemon" placeholder="Ex: grass, eletric">
-            </div>
-            <div class="form-group">
-              <label for="inputPeso">Peso</label>
-              <input type="number"  v-model="addPokemonForm.peso" class="form-control" id="inputPeso" aria-describedby="Peso-pokemon" placeholder="Ex: 90.5, 6.0">
-            </div>
-            <div class="form-group">
-              <label for="inputHabilidade">Habilidade</label>
-              <input type="text" class="form-control"  v-model="addPokemonForm.habilidade" id="inputHabilidade" aria-describedby="habiidade-Pokemo" placeholder="Ex: Lightning Rod">
-            </div>
-            <div class="form-group">
-              <label for="inputImage">Image</label>
-              <input type="text" class="form-control" id="inputImage"  v-model="addPokemonForm.image" aria-describedby="Image-Pokemo" placeholder="Link">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
   </div>
 </template>
 
@@ -73,18 +45,6 @@ export default {
    }
   },
   methods: {
-      onSubmit(evt) {
-      evt.preventDefault();
-      const payload = {
-        nome: this.addPokemonForm.nome,
-        categoria:this.addPokemonForm.categoria,
-        image:this.addPokemonForm.image,
-        habilidade:this.addPokemonForm.habilidade,
-        peso:this.addPokemonForm.peso
-      };
-      this.addPokemon(payload);
-      this.initForm();
-    },
     getPokemons() {
       const path = 'http://localhost:8080/pokemon';
       axios.get(path, {
@@ -97,32 +57,12 @@ export default {
           console.log(res.data)
           this.pokemons = res.data;
           console.log(this.pokemons)
+          return this.pokemons
         })
         .catch((error) => {
           console.error(error);
         });
     },
-     addPokemon(payload) {
-      const path = 'http://localhost:8080/pokemon';
-      axios.post(path, payload)
-        .then(() => {
-          this.getPokemons();
-          this.message = 'Pokemon Adicionado!!!';
-          this.showMessage = true;
-        })
-        .catch((error) => {
-          // eslint-disable-next-line
-          console.log(error);
-          this.getPokemons();
-        });
-    },
-  },
-  initForm() {
-      this.addPokemonForm.nome = '';
-      this.addPokemonForm.categoria = '';
-      this.addPokemonForm.habilidade = '';
-      this.addPokemonForm.image = '';
-      this.addPokemonForm.peso = '';
   },
   beforeMount(){
     this.getPokemons()
