@@ -9,7 +9,9 @@
                   <img :src="pokemon.image" class="card-img-top">
                   <h5 class="card-title">{{pokemon.nome}}</h5>
                   <p class="card-text">{{pokemon.categoria}} - {{pokemon.peso}} - {{pokemon.habilidade}}</p>
-                  <a class="btn btn-primary">Go somewhere</a>
+                  <button type="button" class="btn btn-danger btn-sm" @click="onDeletePokemon(pokemon)">
+                      Delete
+                  </button>
                 </div>
             </div>
             </div>
@@ -45,6 +47,24 @@ export default {
    }
   },
   methods: {
+     onDeletePokemon(pokemon) {
+      console.log(pokemon)
+      this.removePokemon(pokemon.id);
+    },
+    removePokemon(PokemonID) {
+      const path = `http://localhost:8080/pokemon/${PokemonID}`;
+      axios.delete(path)
+        .then(() => {
+          this.getPokemons();
+          this.message = 'Pokemon removido!';
+          this.showMessage = true;
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.error(error);
+          this.getPokemons();
+        });
+    },
     getPokemons() {
       const path = 'http://localhost:8080/pokemon';
       axios.get(path, {
