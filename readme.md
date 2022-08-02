@@ -26,3 +26,6 @@ A partir do projeto ["Construindo um Pokédex com Spring Webflux"](https://web.d
 - 👩🏽‍💻 [Vue JS](https://vuejs.org/)
 
 
+## Imagem da Aplicação
+![WhatsApp Image 2022-07-18 at 11 31 39](https://user-images.githubusercontent.com/34607779/182270663-ed1d17ab-0cab-48dd-9178-3d2dc98f72ab.jpeg)
+
