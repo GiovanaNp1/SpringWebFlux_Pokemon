@@ -9,7 +9,7 @@ Projeto feito baseado no Labs da [Digital Innovation One](https://web.digitalinn
 ## Abordagem e Roadmap 💡
 A partir do projeto ["Construindo um Pokédex com Spring Webflux"](https://web.digitalinnovation.one/lab/construindo-um-pokedex-com-spring-webflux/), Tive as seguintes implementações e features futuras:
 
-- [X] Criação de Projeto com SpringBoot
+- [X] Criação de Projeto com SpringBoot - Banana
 - [X] Inserir modelos MongoDB como base de informções dos pokemons e documentos
 - [X] Criação de Metodos GET, POST, PUT & DELETE
 - [X] Listagem no Front-end de todos os pokemons
